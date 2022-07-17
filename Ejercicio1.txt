@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <conio.h>
+
+int main(){
+	int numero, i , x=0, y,z=y;
+	
+	printf("Digite el numero de elementos a obtener:");
+	scanf("%i",&numero);
+	printf("Digite el numero desde el cual iniciara el sistema: ");
+	scanf("%d",&y);
+	
+	printf("%d, ",y);
+	
+	for(i=1;i<numero;i++){
+		z= x+y;
+		x= y;
+		y= z;
+		
+		printf("%i , ",z);
+	}
+}
