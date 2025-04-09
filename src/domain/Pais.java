@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,24 +12,24 @@ package domain;
  */
 public class Pais {
     
-=======
-package domain;
-
-public class Pais {
     private final String nombre;
-    private final String codigoIso;
+    private String codigo;
 
-    public Pais(String nombre, String codigoIso) {
+    public Pais(String nombre,String codigo) {
         this.nombre = nombre;
-        this.codigoIso = codigoIso;
+        this.codigo = codigo;
+      
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getCodigoIso() {
-        return codigoIso;
+    public String getCodigo() {
+        return codigo;
     }
->>>>>>> pais-origen
+
+    
+  
+
 }
