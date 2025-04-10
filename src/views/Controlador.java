@@ -2,12 +2,16 @@ package views;
 
 import data.Persistencia;
 import domain.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import java.util.ArrayList;
 import java.util.InvalidPropertiesFormatException;
 import java.util.List;
 
-public class Controlador {
+public class Controlador implements ActionListener {
+     VistaPrincipal vp = new VistaPrincipal();
+     
     public static TipoAlimentacion[] getTiposAlimentacion(){
         return  TipoAlimentacion.values();
     }
@@ -26,9 +30,29 @@ public class Controlador {
         return animales;
     }
     
+    
     public static ComidaViewModel  calcularComida(){
         double totalCarnivoros = Persistencia.getTotalComida(TipoAlimentacion.CARNIVORO);
         double totalHerbivoros = Persistencia.getTotalComida(TipoAlimentacion.HERBIVORO);
         return new ComidaViewModel(totalCarnivoros, totalHerbivoros);
     }
+
+      public void ejecutar(){
+       vp.setControlador(this);    
+       vp.ejecutar();
+      }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+       
+        if(e.getActionCommand().equals(vp.OP_AGREGAR)){
+            System.out.println("Abiendo menu...");
+        }
+     
+        
+    }
+    
+    
+  
+    
 }
