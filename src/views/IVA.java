@@ -20,4 +20,16 @@ public interface IVA {
      public void llenarComboBoxSector(ArrayList<Sector> sectores);
      public void llenarComboBoxPais(ArrayList<Pais> paises); 
      public void llenarComboBoxEspecie(ArrayList<Especie> especies);
+     
+      public Double getPeso();
+      public int getValorFijo();
+      public int getEdad();
+      
+      public String getEspecie();
+      
+      public String getPais();
+      
+      public String getAlimentacion();
+      
+      public String getSector();
 }

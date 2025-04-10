@@ -11,15 +11,24 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author franc
  */
-public class ListarAnimalesView extends javax.swing.JFrame {
+public class ListarAnimalesView extends javax.swing.JFrame implements IVC{
 
     /**
      * Creates new form ListarAnimalesView
      */
     public ListarAnimalesView() {
         initComponents();
-        listarAnimales();
+    
     }
+    
+    public void ejecutar(){
+     this.setVisible(true);
+    }
+    
+    public void setControlador(Controlador control){
+    
+    }
+    /*
     private void listarAnimales(){
         ArrayList<AnimalViewModel> animales = Controlador.getAnimales();
         animalesGrid.setModel(new DefaultTableModel(new Object[][] {}, 
@@ -35,6 +44,15 @@ public class ListarAnimalesView extends javax.swing.JFrame {
                 animal.getPorcentaje() > 0 ? String.format("%.2f %%", animal.getPorcentaje()*100) : "-"
             });
         }
+    }*/
+    
+    public void cargarTabla(ArrayList<String[]> datos){
+    DefaultTableModel m = (DefaultTableModel) jTable1.getModel();
+    m.setRowCount(0);
+    
+    for(String [] filas : datos){
+     m.addRow(filas);
+    }
     }
 
     /**
@@ -47,7 +65,7 @@ public class ListarAnimalesView extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        animalesGrid = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         calcularComida = new javax.swing.JButton();
         panel = new javax.swing.JPanel();
         totalHerbivoros = new javax.swing.JLabel();
@@ -60,7 +78,7 @@ public class ListarAnimalesView extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(640, 480));
         setSize(new java.awt.Dimension(640, 480));
 
-        animalesGrid.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -68,10 +86,10 @@ public class ListarAnimalesView extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Especie", "Edad", "Peso (KG)", "Sector"
             }
         ));
-        jScrollPane1.setViewportView(animalesGrid);
+        jScrollPane1.setViewportView(jTable1);
 
         calcularComida.setText("Calcular Comida");
         calcularComida.addActionListener(new java.awt.event.ActionListener() {
@@ -168,45 +186,12 @@ public class ListarAnimalesView extends javax.swing.JFrame {
          totalAlimentos.setText(String.format("%.2f%n Kgs.", comida.getTotal()));
     }//GEN-LAST:event_calcularComidaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListarAnimalesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListarAnimalesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListarAnimalesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListarAnimalesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ListarAnimalesView().setVisible(true);
-            }
-        });
-    }
+  
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable animalesGrid;
     private javax.swing.JButton calcularComida;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel panel;
     private javax.swing.JLabel totalAlimentos;
     private javax.swing.JLabel totalCarnivoros;

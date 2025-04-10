@@ -5,14 +5,14 @@
  */
 package views;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Fernando
  */
-public interface IVP {
-    public static String OP_AGREGAR = "agregar";
-    public static String OP_CALCULO = "calcular";
+public interface IVC {
+    public void ejecutar();
+    public void cargarTabla(ArrayList<String[]> datos);
     public void setControlador(Controlador control);
-     public void ejecutar();
-     
 }

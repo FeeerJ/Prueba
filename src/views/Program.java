@@ -12,6 +12,6 @@ public class Program {
         Persistencia.inicializar();
         Controlador control = new Controlador();
         control.ejecutar();
-       
+        
     }
 }
