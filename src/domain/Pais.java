@@ -29,6 +29,11 @@ public class Pais {
         return codigo;
     }
 
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
     
   
 

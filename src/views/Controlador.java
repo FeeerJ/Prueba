@@ -48,10 +48,16 @@ public class Controlador implements ActionListener {
        
         if(e.getActionCommand().equals(vp.OP_AGREGAR)){
             System.out.println("Abiendo menu...");
-             va.llenarComboBoxSector(Persistencia.getSectores());
-            va.ejecutar();
+            va.llenarComboBoxSector(Persistencia.getSectores());
+            va.llenarComboBoxPais(Persistencia.getPaises());
+            va.llenarComboBoxEspecie(Persistencia.getEspecies());
+            va.setControlador(this);
+            va.ejecutar(); 
+        }
+        
+        if(e.getActionCommand().equals(va.OPC_GUARDAR)){
             
-            
+            System.out.println("Agregar animal...");
         }
      
         
