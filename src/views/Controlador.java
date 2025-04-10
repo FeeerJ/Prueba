@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Controlador implements ActionListener {
      VistaPrincipal vp = new VistaPrincipal();
+     IVA  va = new VistaAnimales(null,true);
      
     public static TipoAlimentacion[] getTiposAlimentacion(){
         return  TipoAlimentacion.values();
@@ -47,6 +48,10 @@ public class Controlador implements ActionListener {
        
         if(e.getActionCommand().equals(vp.OP_AGREGAR)){
             System.out.println("Abiendo menu...");
+             va.llenarComboBoxSector(Persistencia.getSectores());
+            va.ejecutar();
+            
+            
         }
      
         

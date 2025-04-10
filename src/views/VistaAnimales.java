@@ -1,19 +1,26 @@
 
 package views;
 
+
+import domain.Sector;
 import java.util.ArrayList;
 
 
-public class VistaAnimales extends javax.swing.JDialog {
+public class VistaAnimales extends javax.swing.JDialog implements IVA {
 
     public VistaAnimales(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-    
+
+     public void setControlador(Controlador control){
+
+}
+
     public void ejecutar(){
        this.setVisible(true);
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -173,17 +180,15 @@ public class VistaAnimales extends javax.swing.JDialog {
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     
-    public void llenarComboBoxSector(ArrayList sectores){
+    public void llenarComboBoxSector(ArrayList<Sector> sectores){
       jComboBox1.removeAllItems();
-       for(int i=0 ; i<sectores.size(); i++){
-         String item = (String) sectores.get(i);
-         jComboBox1.addItem(item);
-       
-       }
+       for(Sector sector: sectores){
+          jComboBox1.addItem(sector.toString());
+        }
       
     }
     
-    
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
